@@ -10,3 +10,6 @@
 
 * 함수형 프로그래밍
 `myapp/functional`
+
+* 자바 최신 버전별 특징
+`myapp/release`
