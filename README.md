@@ -14,8 +14,5 @@
 * 자바 최신 버전별 특징  
 `myapp/release`
 
-# dev environment
-`:: Spring Boot :: v2.4.1 -> 2020, Java 15`  
-~~`:: Spring Boot :: v2.3.1 -> 2020, Java 14`~~  
-~~`:: Spring Boot :: v2.1.4 -> 2020, Java 11`~~  
-~~`:: Spring Boot :: v1.5.9 -> 2017`~~  
+# 개발 환경
+`STS 4.9.0 (2020)`, `Spring Boot v2.4.1 (2020)`, `JDK 15 (2020)`  
