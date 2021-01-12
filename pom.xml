@@ -15,7 +15,7 @@
 	<artifactId>myapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>myapp</name>
-	<description>MyApp project for Spring Boot</description>
+	<description>My Project</description>
 
 	<properties>
 		<java.version>15</java.version>

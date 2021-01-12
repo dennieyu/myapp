@@ -1,6 +1,6 @@
 JVM 구조
 =====
-<img title="JVM" src="./jvm.png" alt="example" width="500px">
+<img title="JVM" src="./jvm.png" alt="example" width="600px">
 
 PID 확인
 =====
@@ -29,23 +29,32 @@ GC 모니터링
 22528.0 21504.0  0.0    0.0   220160.0 209701.2  196096.0   30584.3   59160.0 56594.1 8704.0 8203.9     11    0.082   3      0.274   -          -    0.356
 ```
 
+Default GC 확인 방법
+=====
+```
+java -XX:+PrintCommandLineFlags -version
+```
+
 GC 처리 방식
 =====
-* -XX:+UseSerialGC: 하나의 스레드를 이용하여 Young 영역과 Old 영역의 정리를 처리
+* **-XX:+UseSerialGC**: 하나의 스레드를 이용하여 Young 영역과 Old 영역의 정리를 처리
   
-* -XX:+UseParallelGC: Young 영역의 정리에 다수의 스레드를 이용하여 처리
+* **-XX:+UseParallelGC**: Young 영역의 정리에 다수의 스레드를 이용하여 처리
   
-* -XX:+UseParallelOldGC: Old 영역의 처리도 다수의 스레드를 이용하여 처리
+* **-XX:+UseParallelOldGC**: Old 영역의 처리도 다수의 스레드를 이용하여 처리
   
-* -XX:+UseConcMarkSweepGC: 메이저 GC의 성능 향상을 위해 Old 영역의 정리를 Concurrent 방식으로 처리
+* **-XX:+UseConcMarkSweepGC**: 메이저 GC의 성능 향상을 위해 Old 영역의 정리를 Concurrent 방식으로 처리
   
-* -XX:+UseG1GC:
-1. G1은 이름을 보면 짐작할 수 있듯, 쓰레기로 가득찬 heap 영역을 집중적으로 수집한다.  
-1. G1은 큰 메모리를 가진 멀티 프로세서 시스템에서 사용하기 위해 개발된 GC이다.  
+* **-XX:+UseG1GC**:
+1. 장기적으로 말도 많고 탈도 많은 CMS GC를 대체하기 만들어졌고, 가장 큰 장점은 성능이다.
+1. 큰 메모리를 가진 멀티 프로세서 시스템에서 사용하기 위해 개발된 GC이다.  
 1. GC 일시 정지 시간을 최소화하면서, 따로 설정을 하지 않아도 가능한 한 처리량(throughput)도 확보하는 것이 G1GC의 목표이다.  
-1. G1은 Java 9부터 디폴트 GC이다.  
-1. G1은 실시간(real time) GC가 아니다. 일시 정지 시간을 최소화하긴 하지만 완전히 없애지는 못한다.  
-1. G1은 통계를 계산해가면서 GC 작업량을 조절한다.  
+1. Java 9부터 디폴트 GC이다.  
+1. 실시간(real time) GC가 아니다. 일시 정지 시간을 최소화하긴 하지만 완전히 없애지는 못한다.  
+1. 통계를 계산해가면서 GC 작업량을 조절한다.  
+
+* **용어**  
+`Mark-Sweep-Compaction`, `Mark-Summary-Compaction`, `Stop-The-World`
 
 쓰레드 분석하기
 =====
@@ -132,7 +141,7 @@ No instances waiting for finalization found
 쓰레드 덤프 획득
 =====
 ```
-./jmap -dump:live,file=./dump 23928
+./jmap -dump:live,file=./heap.hprof{pid} 23928
 ```
 
 VisualVM 다운로드
