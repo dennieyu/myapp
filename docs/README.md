@@ -83,6 +83,11 @@ S1: Survivor 1
 +------+----+----+-----+-----------+--------+--------------+
 ```
 
+Memory Leak 사례
+=====
+   1. <a href="https://woowabros.github.io/tools/2019/05/24/jvm_memory_leak.html" target="_blank">https://woowabros.github.io/tools/2019/05/24/jvm_memory_leak.html</a>
+   1. <a href="https://https://gist.github.com/ihoneymon/9efec8cc2b671a020b5164260992c87c" target="_blank">https://gist.github.com/ihoneymon/9efec8cc2b671a020b5164260992c87c</a>
+
 쓰레드 분석하기
 =====
 ```
@@ -173,4 +178,23 @@ No instances waiting for finalization found
 
 VisualVM 다운로드
 =====
-<a href="https://visualvm.github.io/download.html" target="_blank">https://visualvm.github.io/download.html</a>
+* JVM을 실시간으로 모니터링 할 수 있는 오픈소스 기반 GUI Tool
+* <a href="https://visualvm.github.io/download.html" target="_blank">https://visualvm.github.io/download.html</a>
+
+MAT 다운로드
+=====
+* 자바 힙 분석을 위한 풍부한 기능을 제공
+* <a href="https://www.eclipse.org/mat/" target="_blank">https://www.eclipse.org/mat/</a>
+
+pinpoint 다운로드
+=====
+* Java로 작성된 대규모 분산 시스템용 APM 도구
+* <a href="https://pinpoint-apm.github.io/pinpoint/installation.html" target="_blank">https://pinpoint-apm.github.io/pinpoint/installation.html</a>
+
+ngrinder 다운로드
+=====
+* 성능 측정 목적으로 개발된 오픈소스 프로젝트
+* 테스트 프로세스를 제공
+* 부하를 줄 수 있는 웹 인터페이스를 제공
+* 테스트 결과를 수집하여 통계로 제공
+* <a href="https://github.com/naver/ngrinder/releases" target="_blank">https://github.com/naver/ngrinder/releases</a>
