@@ -46,15 +46,42 @@ GC 처리 방식
 * **-XX:+UseConcMarkSweepGC**: 메이저 GC의 성능 향상을 위해 Old 영역의 정리를 Concurrent 방식으로 처리
   
 * **-XX:+UseG1GC**:
-1. 장기적으로 말도 많고 탈도 많은 CMS GC를 대체하기 만들어졌고, 가장 큰 장점은 성능이다.
-1. 큰 메모리를 가진 멀티 프로세서 시스템에서 사용하기 위해 개발된 GC이다.  
-1. GC 일시 정지 시간을 최소화하면서, 따로 설정을 하지 않아도 가능한 한 처리량(throughput)도 확보하는 것이 G1GC의 목표이다.  
-1. Java 9부터 디폴트 GC이다.  
-1. 실시간(real time) GC가 아니다. 일시 정지 시간을 최소화하긴 하지만 완전히 없애지는 못한다.  
-1. 통계를 계산해가면서 GC 작업량을 조절한다.  
+   1. 장기적으로 말도 많고 탈도 많은 CMS GC를 대체하기 만들어졌고, 가장 큰 장점은 성능이다.
+   1. 큰 메모리를 가진 멀티 프로세서 시스템에서 사용하기 위해 개발된 GC이다.  
+   1. GC 일시 정지 시간을 최소화하면서, 따로 설정을 하지 않아도 가능한 한 처리량(throughput)도 확보하는 것이 G1GC의 목표이다.  
+   1. **Java 9**부터 디폴트 GC이다.  
+   1. 실시간(real time) GC가 아니다. 일시 정지 시간을 최소화하긴 하지만 완전히 없애지는 못한다.  
+   1. 통계를 계산해가면서 GC 작업량을 조절한다.  
 
 * **용어**  
-`Mark-Sweep-Compaction`, `Mark-Summary-Compaction`, `Stop-The-World`
+`Mark-Sweep-Compaction`, `Mark-Summary-Compaction`, `Stop-The-World`, `Age`, `Promotion`
+
+* **PermGen**
+   * JDK 8부터 Permanent Heap 영역이 제거되었다.
+      * 대신 Metaspace 영역이 추가되었다.
+      * Perm은 JVM에 의해 크기가 강제되던 영역이다.
+   * Metaspace는 Native memory 영역으로, OS가 자동으로 크기를 조절한다.
+      * 옵션으로 Metaspace의 크기를 줄일 수도 있다.
+   * 그 결과 기존과 비교해 큰 메모리 영역을 사용할 수 있게 되었다.
+      * Perm 영역 크기로 인한 java.lang.OutOfMemoryError를 더 보기 힘들어진다.
+
+* **Java 7, Java 8 비교**
+```
+<----- Java Heap ----->             <--- Native Memory --->
++------+----+----+-----+-----------+--------+--------------+
+| Eden | S0 | S1 | Old | Permanent | C Heap | Thread Stack |
++------+----+----+-----+-----------+--------+--------------+
+                        <--------->
+                       Permanent Heap
+S0: Survivor 0
+S1: Survivor 1
+```
+```
+<----- Java Heap -----> <--------- Native Memory --------->
++------+----+----+-----+-----------+--------+--------------+
+| Eden | S0 | S1 | Old | Metaspace | C Heap | Thread Stack |
++------+----+----+-----+-----------+--------+--------------+
+```
 
 쓰레드 분석하기
 =====
