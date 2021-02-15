@@ -1,8 +1,8 @@
 # 다루는 내용
 1. 비동기 처리
    - [**asynchronous**](./src/main/java/myapp/asynchronous) - `myapp/asynchronous`
-   - [**callback**](./src/main/java/myapp/asynchronous/callback) - `콜백 패턴`
-   - [**event**](./src/main/java/myapp/asynchronous/event) - `이벤트 패턴`
+   - [**callback**](./src/main/java/myapp/asynchronous/callback) - `콜백 처리`
+   - [**event**](./src/main/java/myapp/asynchronous/event) - `이벤트 처리`
 
 1. 동시성 제어
    - [**concurrent**](./src/main/java/myapp/concurrent) - `myapp/concurrent`
@@ -17,7 +17,7 @@
 
 1. 자바 최신 버전별 특징
    - [**release**](./src/main/java/myapp/release) - `myapp/release`
-   - [**JVM**](./docs) - `JVM`
+   - [**JVM**](./docs) - `JVM 구조`
 
 # 개발 환경
    - `STS 4.9.0 (2020)`
