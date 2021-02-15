@@ -9,17 +9,17 @@
 
 1. 디자인 패턴
    - [**designpattern**](./src/main/java/myapp/designpattern) - `myapp/designpattern`
-   - [**command**](./src/main/java/myapp/designpattern/command) - 커맨드 패턴
-   - [**observe**](./src/main/java/myapp/designpattern/observe) - 옵저브 패턴
+   - [**command**](./src/main/java/myapp/designpattern/command) - `커맨드 패턴`
+   - [**observe**](./src/main/java/myapp/designpattern/observe) - `옵저브 패턴`
 
 1. 함수형 프로그래밍
    - [**functional**](./src/main/java/myapp/functional) - `myapp/functional`
 
 1. 자바 최신 버전별 특징
    - [**release**](./src/main/java/myapp/release) - `myapp/release`
-   - [**JVM**](./tree/master/docs) - JVM
+   - [**JVM**](./docs) - `JVM`
 
 # 개발 환경
-   - `STS 4.9.0 (2020)`  
-   - `Spring Boot v2.4.1 (2020)`  
-   - `JDK 15 (2020)`  
+   - `STS 4.9.0 (2020)`
+   - `Spring Boot v2.4.1 (2020)`
+   - `JDK 15 (2020)`
