@@ -100,6 +100,7 @@ public class javaFileNio {
 		try {
 			Files.delete(filePath);
 		} catch (IOException | SecurityException e) {
+			e.printStackTrace();
 			return false;
 		}
 
