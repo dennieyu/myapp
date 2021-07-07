@@ -59,4 +59,5 @@
  `-> OOP (객체지향), AOP (관점지향), OOP를 더욱 OOP답게 사용, @Pointcut, @Before, @AfterReturning, @Around`  
 
 21. POJO가 무엇인가요?  
- `-> 순수 자바 객체, Java Bean (어노테이션, 생성자, getter, setter, .. )과 구별`  
+ `-> 순수 자바 객체, Java Bean (어노테이션, 생성자, getter, setter, .. )과 구별`<br>
+ `-> 특정 인터페이스나 클래스를 상속하지 않고, 순수하게 getter, setter로만 구성된(어디에도 종속되지 않은) 자바 객체를 말함`
