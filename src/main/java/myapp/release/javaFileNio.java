@@ -7,9 +7,37 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.List;
 
 public class javaFileNio {
+
+	private static String resourceDirectory = "D://dev/javadev/workspace/2021/myapp/src/main/resources/";
+
+	public static void main(String[] args) {
+		List<Integer> nums = Arrays.asList(2, 3, 4, 5, 6, 7);
+		nums.forEach(r -> {
+			deleteFile(resourceDirectory, "copyTest".concat(Integer.toString(r)).concat(".txt"));
+		});
+
+		try {
+			FileIoCopy(resourceDirectory.concat("copyTest1.txt"), resourceDirectory.concat("copyTest2.txt"));
+			FileIoBufferCopy(resourceDirectory.concat("copyTest1.txt"), resourceDirectory.concat("copyTest3.txt"));
+			FileNioFullBufferCopy(resourceDirectory.concat("copyTest1.txt"), resourceDirectory.concat("copyTest4.txt"));
+			FileNioByteBufferingCopy(resourceDirectory.concat("copyTest1.txt"), resourceDirectory.concat("copyTest5.txt"));
+			FileNioChannelToCopy(resourceDirectory.concat("copyTest1.txt"), resourceDirectory.concat("copyTest6.txt"));
+			FileNio2Copy(resourceDirectory.concat("copyTest1.txt"), resourceDirectory.concat("copyTest7.txt"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		nums.forEach(r -> {
+			deleteFile(resourceDirectory, "copyTest".concat(Integer.toString(r)).concat(".txt"));
+		});
+	}
 
 	// java.io stream full-size-buffer copy
 	public static void FileIoCopy(String source, String dest) throws FileNotFoundException, IOException {
@@ -64,6 +92,18 @@ public class javaFileNio {
 	// java.nio2 copy
 	public static void FileNio2Copy(String source, String dest) throws IOException {
 		Files.copy(new File(source).toPath(), new File(dest).toPath());
+	}
+
+	// java.nio2 delete
+	public static boolean deleteFile(String path, String name) {
+		Path filePath = FileSystems.getDefault().getPath(path, name);
+		try {
+			Files.delete(filePath);
+		} catch (IOException | SecurityException e) {
+			return false;
+		}
+
+		return true;
 	}
 
 }
