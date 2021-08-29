@@ -11,6 +11,8 @@
    - [**designpattern**](./src/main/java/myapp/designpattern) - `myapp/designpattern`
    - [**command**](./src/main/java/myapp/designpattern/command) - `커맨드 패턴`
    - [**observe**](./src/main/java/myapp/designpattern/observe) - `옵저브 패턴`
+   - [**strategy**](./src/main/java/myapp/designpattern/strategy) - `전략 패턴`
+   - [**singleton**](./src/main/java/myapp/designpattern/singleton) - `싱글턴 패턴`
 
 1. 함수형 프로그래밍
    - [**functional**](./src/main/java/myapp/functional) - `myapp/functional`
