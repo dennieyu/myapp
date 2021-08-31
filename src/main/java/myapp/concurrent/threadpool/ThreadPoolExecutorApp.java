@@ -25,6 +25,7 @@ public class ThreadPoolExecutorApp {
 
 		for (int i = 1; i <= MAX_THREAD_POOL; i++) {
 			SynchronousTask task = new SynchronousTask("Task " + i, latch);
+			// Task task = new Task("Task " + i);
 			executor.execute(task);
 		}
 
